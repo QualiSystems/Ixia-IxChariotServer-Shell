@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+  
+  	<Attributes>
+  	
+    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="The path in which the traffic client is installed on the Execution Server. For example 'C:/Program Files (x86)/Ixia/IxOS/6.90-EA'.">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>  	
+		<AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules Override="true">
+                <Rule Name="Setting"/>
+            </Rules>
+        </AttributeInfo>
+    	<AttributeInfo Name="Media Type" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Interface media type. Possible values are Fiber and/or Copper (comma-separated).">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>  	
+    	<AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="The device model. This information is typically used for abstract resource filtering.">
+      		<Rules Override="false">
+      			<Rule Name="Setting" />
+	       		<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
+        <AttributeInfo Name="OS Version" Type="String" DefaultValue="" IsReadOnly="true"
+        			    Description="Version of the Operating System.">
+            <Rules Override="false">
+                <Rule Name="Setting"/>
+                <Rule Name="Available For Abstract Resources"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Password" Type="String" DefaultValue="" IsReadOnly="false"
+         			   Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true"
+        			   Description="The description of the port as configured in the device.">
+            <Rules Override="false">
+                <Rule Name="Setting"/>
+                <Rule Name="Available For Abstract Resources"/>
+            </Rules>
+        </AttributeInfo>
+	    <AttributeInfo Name="Power Management" Type="Boolean" DefaultValue="False" IsReadOnly="false"
+	    			   Description="Used by the power management orchestration, if enabled, to determine whether to automatically manage the device power status. Enabled by default.">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>
+        <AttributeInfo Name="Serial Number" Type="String" DefaultValue="" IsReadOnly="true"
+         			   Description="">
+            <Rules Override="false">
+                <Rule Name="Setting"/>
+                <Rule Name="Available For Abstract Resources"/>
+            </Rules>
+        </AttributeInfo>
+    	<AttributeInfo Name="Server Description" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="The full description of the server. Usually includes the OS, exact firmware version and additional characteritics of the device.">
+      		<Rules Override="false">
+	     		<Rule Name="Setting" />
+	     		<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
+    	<AttributeInfo Name="Supported Applications" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Comma-separated list of traffic applications supported by this traffic generator. For example 'IxLoad,IxNetwork'.">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>  	
+    	<AttributeInfo Name="Supported Speeds" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Speed supported by the interface, comma-separated.">
+      		<Rules>
+        		<Rule Name="Configuration" />
+      		</Rules>
+    	</AttributeInfo>  	
+         <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false"
+         				Description="">
+            <Rules>
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+    	<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="The firmware version of the resource.">
+      		<Rules Override="false">
+	     		<Rule Name="Setting" />
+	     		<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
+		<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
+					   Description="Vendor name.">
+      		<Rules Override="false">
+	     		<Rule Name="Setting" />
+	     		<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
+ 	</Attributes>
+
+  	<ResourceFamilies>
+
+    	<ResourceFamily Name="Traffic Generator Chassis" Description="" IsSearchable="true">
+    		<Models />
+      		<Categories />
+    	</ResourceFamily>
+
+    	<ResourceFamily Name="Module" Description="" IsSearchable="true">
+			<Models>
+	        	<ResourceModel Name="Generic Traffic Generator Endpoint" Description="Generic Traffic Generator Endpoint" SupportsConcurrentCommands="false">
+					<AttachedAttributes>
+        				<AttachedAttribute Name="OS Version" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+                        <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+        				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+					</AttachedAttributes>
+					<ParentModels>
+						<ParentModelName>IxChariot Server</ParentModelName>
+					</ParentModels>
+        		</ResourceModel>
+			</Models>
+      		<Categories />
+    	</ResourceFamily>
+
+		<ResourceFamily Name="Port" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
+      		<Models>
+				<ResourceModel Name="Generic Traffic Generator Test IP" Description="Generaic Traffic Generator Test IP" SupportsConcurrentCommands="false">
+    				<AttachedAttributes>
+        				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
+            				<AllowedValues />
+          				</AttachedAttribute>
+      				</AttachedAttributes>
+					<ParentModels>
+						<ParentModelName>Generic Traffic Generator Endpoint</ParentModelName>
+					</ParentModels>
+        		</ResourceModel>
+     		</Models>
+     		<Categories />
+   		</ResourceFamily>
+    
+	</ResourceFamilies>
+
+  	<DriverDescriptors>
+    	<DriverDescriptor Name="IxChariotServerDriver" DriverType="PythonDriver" />
+  	</DriverDescriptors>
+
+</DataModelInfo>
