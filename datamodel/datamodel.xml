@@ -70,9 +70,9 @@
       		<Categories />
     	</ResourceFamily>
 
-    	<ResourceFamily Name="Module" Description="" IsSearchable="true">
+    	<ResourceFamily Name="Traffic Generator Endpoint" Description="" IsSearchable="true">
 			<Models>
-	        	<ResourceModel Name="Generic Traffic Generator Endpoint" Description="Generic Traffic Generator Endpoint" SupportsConcurrentCommands="false">
+	        	<ResourceModel Name="IxChariot Endpoint" Description="Generic Traffic Generator Endpoint" SupportsConcurrentCommands="false">
 					<AttachedAttributes>
         				<AttachedAttribute Name="OS Version" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
@@ -92,16 +92,16 @@
       		<Categories />
     	</ResourceFamily>
 
-		<ResourceFamily Name="Port" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
+		<ResourceFamily Name="IxChariot test IP" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
       		<Models>
-				<ResourceModel Name="Generic Traffic Generator Test IP" Description="Generaic Traffic Generator Test IP" SupportsConcurrentCommands="false">
+				<ResourceModel Name="Traffic Generator Test IP" Description="Generaic Traffic Generator Test IP" SupportsConcurrentCommands="false">
     				<AttachedAttributes>
         				<AttachedAttribute Name="Logical Name" IsOverridable="true" IsLocal="true">
             				<AllowedValues />
           				</AttachedAttribute>
       				</AttachedAttributes>
 					<ParentModels>
-						<ParentModelName>Generic Traffic Generator Endpoint</ParentModelName>
+						<ParentModelName>IxChariot Endpoint</ParentModelName>
 					</ParentModels>
         		</ResourceModel>
      		</Models>
