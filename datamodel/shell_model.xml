@@ -3,39 +3,32 @@
 	<ShellAttributes>
 	</ShellAttributes>
 
-    <ShellModel Family="Traffic Generator Chassis">
+    <ShellModel Family="Traffic Generator Server">
         <ResourceModel Name="IxChariot Server" Description="IxChariot Web Server" SupportsConcurrentCommands="false">
     		<AttachedAttributes>
+				<AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+				<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+                	<AllowedValues />
+           		</AttachedAttribute>
+				<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+				<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
+            		<AllowedValues />
+            	</AttachedAttribute>
+				<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
+            		<AllowedValues />
+          		</AttachedAttribute>
                 <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
                     <AllowedValues/>
                 </AttachedAttribute>
                 <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
                     <AllowedValues/>
                 </AttachedAttribute>    		
-        		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-          		</AttachedAttribute>
-            	<AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-                	<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Power Management" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-	          	<AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-                	<AllowedValues/>
-             	</AttachedAttribute>
-            	<AttachedAttribute Name="Server Description" IsOverridable="false" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
-            	<AttachedAttribute Name="Supported Applications" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-        		</AttachedAttribute>
-            	<AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
-  					<AllowedValues />
-           		</AttachedAttribute>
-            	<AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-            		<AllowedValues />
-            	</AttachedAttribute>
+
+
       		</AttachedAttributes>
             <Drivers>
                 <DriverName>IxChariotServerDriver</DriverName>
