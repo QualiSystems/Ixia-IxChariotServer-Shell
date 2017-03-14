@@ -9,10 +9,10 @@ import unittest
 
 from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceContextDetails, InitCommandContext)
 
-from src.ixc_handler import IxcHandler
+from src.ixc_server_handler import IxcHandler
 
 address = 'ixchariot.corp.airties.com'
-client_install_path = 'C:/IxChariotPython'
+client_install_path = 'C:\IxChariotPython'
 user = 'yoram.s@quali.com'
 password = 'Testshell.1234'
 

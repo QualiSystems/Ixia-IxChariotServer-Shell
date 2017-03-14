@@ -36,6 +36,7 @@ class IxcHandler(object):
 
         self.connection = webapi.webApi.connect('https://' + address, 'v1', None, username, password)
 
+
     def get_inventory(self, context):
         """ Return device structure with all standard attributes
 
@@ -43,16 +44,22 @@ class IxcHandler(object):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
 
-        return AutoLoadDetails([], [])
+        self.attributes=[]
+        self.resources = []
+        session = self.connection.createSession('ixchariot')
+        session.startSession()
+        self._get_server(session)
 
-    def _get_server(self, session):
+        return AutoLoadDetails(self.resources, self.attributes)
+
+    def _get_server(self,session):
         """ Get server resource and attributes. """
 
         self.attributes.append(AutoLoadAttribute(relative_address='',
                                                  attribute_name='Vendor',
                                                  attribute_value='Ixia'))
 
-        endpoints = session.httpGet("config/ixchariot/resources/endpoint")
+        endpoints = session.parentConvention.httpGet("ixchariot/resources/endpoint")
         for endpoint in endpoints:
             self._get_endpoint(endpoint)
 
@@ -60,22 +67,22 @@ class IxcHandler(object):
         """ Get module resource and attributes. """
 
         relative_address = 'EP' + endpoint.managementIp.address
-        self.resources.append(AutoLoadResource(model='Generic Traffic Generator Endpoint',
+        self.resources.append(AutoLoadResource(model='IxChariot Endpoint',
                                                name=endpoint.name,
                                                relative_address=relative_address))
         self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
                                                  attribute_name='OS Version',
                                                  attribute_value=endpoint.operatingSystem))
-        self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
-                                                 attribute_name='Version',
-                                                 attribute_value=endpoint.version))
+        #self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
+        #                                         attribute_name='Version',
+        #                                         attribute_value=endpoint.version))
         for test_ip in endpoint.ips:
             self._get_test_ip(relative_address, test_ip)
 
     def _get_test_ip(self, endpoint, test_ip):
         """ Get port group resource and attributes. """
 
-        relative_address = endpoint + '/TIP' + test_ip.address
-        self.resources.append(AutoLoadResource(model='Generic Traffic Generator Test IP',
+        relative_address = endpoint + '/' + test_ip.address
+        self.resources.append(AutoLoadResource(model='Traffic Generator Test IP',
                                                name=test_ip.address,
                                                relative_address=relative_address))

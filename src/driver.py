@@ -7,10 +7,10 @@ This module is an empty shell, actual implementation is in ixc_handle.
 
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 
-from ixc_handler import IxcHandler
+from ixc_server_handler import IxcHandler
 
 
-class IxChariotServerDriver(ResourceDriverInterface):
+class IxChariotServerShell(ResourceDriverInterface):
 
     def __init__(self):
         self.handler = IxcHandler()
@@ -33,3 +33,4 @@ class IxChariotServerDriver(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
         return self.handler.get_inventory(context)
+

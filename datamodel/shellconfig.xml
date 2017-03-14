@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ShellsConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.qualisystems.com/ResourceManagement/ShellsConfigurationSchema.xsd">
 	<ResourceTemplates>
-    	<ResourceTemplate Name="IxChariot Server" Model="IxChariot Server" Driver="IxChariotServerDriver">
+    	<ResourceTemplate Name="IxChariot Server" Model="IxChariot Server" Driver="IxChariotServerShell">
         	<Description></Description>
         	<AutoLoad Enable="true">
             	<Description>Load IxChariot Server and endpoints</Description>
@@ -11,6 +11,9 @@
             <Attribute Name="Password" Value="" />
             <Attribute Name="Client Install Path" Value="" />
             <Attribute Name="Power Management" Value="" />
+
+
+
         </Attributes>
     	</ResourceTemplate>
 	</ResourceTemplates>

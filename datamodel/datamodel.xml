@@ -10,6 +10,14 @@
 	     		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
+
+		<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
+					   Description="Vendor name.">
+      		<Rules Override="false">
+	     		<Rule Name="Setting" />
+				<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
     	<AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The device model. This information is typically used for abstract resource filtering.">
       		<Rules Override="false">
@@ -42,12 +50,14 @@
                 <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
-        <AttributeInfo Name="Password" Type="Password" DefaultValue="" IsReadOnly="false"
+		<AttributeInfo Name="Password" Type="String" DefaultValue="" IsReadOnly="false"
          			   Description="">
             <Rules>
                 <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
+
+
 
 		<AttributeInfo Name="OS Version" Type="String" DefaultValue="" IsReadOnly="true"
          			   Description="">
@@ -65,7 +75,7 @@
 
   	<ResourceFamilies>
 
-    	<ResourceFamily Name="Traffic Generator Server" Description="" IsSearchable="true">
+        <ResourceFamily Name="Traffic Generator Server" Description="" IsSearchable="true">
     		<Models />
       		<Categories />
     	</ResourceFamily>
@@ -111,7 +121,7 @@
 	</ResourceFamilies>
 
   	<DriverDescriptors>
-    	<DriverDescriptor Name="IxChariotServerDriver" DriverType="PythonDriver" />
+    	<DriverDescriptor Name="IxChariotServerShell" DriverType="PythonDriver" />
   	</DriverDescriptors>
 
 </DataModelInfo>

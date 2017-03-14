@@ -1,24 +1,38 @@
 import imp
+
 import sys
 import os
 
-install_path = 'C:/IxChariotPython'
 
+install_path = 'C:\\IxChariotPython'
+webServerAddress = 'https://ixchariot.corp.airties.com'
+apiVersion = "v1"
+
+print "Connecting to " + webServerAddress
 sys.path.append(install_path)
-
 webapi = imp.load_source('webapi', os.path.join(install_path, 'ixia/webapi.py'))
+path = os.path.join(install_path, 'ixchariotApi.py')
 ixchariotapi = imp.load_source('ixchariotapi', os.path.join(install_path, 'ixchariotApi.py'))
 
-connection = webapi.webApi.connect('https://ixchariot.corp.airties.com', 'v1', None, 'yoram.s@quali.com',
+api = webapi.webApi.connect(webServerAddress, apiVersion, None, 'yoram.s@quali.com',
                                    'Testshell.1234')
+session = api.createSession("ixchariot")
+print "Created session %s" % session.sessionId
 
-session = connection.createSession('ixchariot')
-
-endpoints = session.httpGet("config/ixchariot/resources/endpoint")
-for endpoint in endpoints:
-    print endpoint.managementIp
-
+print "Starting the session..."
 session.startSession()
+
+try:
+    print "Starting the test..."
+
+    resources = session.parentConvention.httpGet("ixchariot/resources/endpoint")
+
+    for i in range(0, len(resources)):
+        resource = resources[i]
+        print resource.managementIp
+
+except Exception, e:
+    print "Error", e
 
 session.loadConfiguration('tcp sample')
 
@@ -43,4 +57,4 @@ result = session.runTest()
 
 filePath = "c:/temp/testResults.zip"
 with open(filePath, "wb+") as statsFile:
-    connection.getStatsCsvZipToFile(result.testId, statsFile)
+    api.getStatsCsvZipToFile(result.testId, statsFile)
