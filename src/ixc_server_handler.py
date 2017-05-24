@@ -19,7 +19,7 @@ class IxcHandler(object):
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
 
-        log_file = 'IXC_logger.log'
+        log_file = 'c:/temp/ixchariot_server_logger.log'
         logging.basicConfig(filename=log_file, level=logging.DEBUG)
         self.logger = logging.getLogger('root')
         self.logger.addHandler(logging.FileHandler(log_file))
@@ -36,7 +36,6 @@ class IxcHandler(object):
 
         self.connection = webapi.webApi.connect('https://' + address, 'v1', None, username, password)
 
-
     def get_inventory(self, context):
         """ Return device structure with all standard attributes
 
@@ -44,7 +43,7 @@ class IxcHandler(object):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
 
-        self.attributes=[]
+        self.attributes = []
         self.resources = []
         session = self.connection.createSession('ixchariot')
         session.startSession()
@@ -52,7 +51,7 @@ class IxcHandler(object):
 
         return AutoLoadDetails(self.resources, self.attributes)
 
-    def _get_server(self,session):
+    def _get_server(self, session):
         """ Get server resource and attributes. """
 
         self.attributes.append(AutoLoadAttribute(relative_address='',
@@ -84,5 +83,5 @@ class IxcHandler(object):
 
         relative_address = endpoint + '/' + test_ip.address
         self.resources.append(AutoLoadResource(model='Traffic Generator Test IP',
-                                               name=test_ip.address,
+                                               name=test_ip.address.replace(':', '-'),
                                                relative_address=relative_address))

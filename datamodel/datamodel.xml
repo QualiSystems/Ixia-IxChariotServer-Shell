@@ -2,20 +2,11 @@
 <DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   
   	<Attributes>
-
 		<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The firmware version of the resource.">
       		<Rules Override="false">
 	     		<Rule Name="Setting" />
 	     		<Rule Name="Available For Abstract Resources" />
-      		</Rules>
-    	</AttributeInfo>
-
-		<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
-					   Description="Vendor name.">
-      		<Rules Override="false">
-	     		<Rule Name="Setting" />
-				<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
     	<AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true"
