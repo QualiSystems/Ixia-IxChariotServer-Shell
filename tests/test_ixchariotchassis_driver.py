@@ -12,9 +12,11 @@ from cloudshell.shell.core.driver_context import (ConnectivityContext, ResourceC
 from src.ixc_server_handler import IxcHandler
 
 address = 'ixchariot.corp.airties.com'
-client_install_path = 'C:\IxChariotPython'
+client_install_path = 'C:/'
 user = 'yoram.s@quali.com'
 password = 'Testshell.1234'
+user = 'fetullah.turkeli@airties.com'
+password = '123456789aA.'
 
 
 class TestIxChariotServerDriver(unittest.TestCase):

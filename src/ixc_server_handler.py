@@ -72,9 +72,6 @@ class IxcHandler(object):
         self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
                                                  attribute_name='OS Version',
                                                  attribute_value=endpoint.operatingSystem))
-        #self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
-        #                                         attribute_name='Version',
-        #                                         attribute_value=endpoint.version))
         for test_ip in endpoint.ips:
             self._get_test_ip(relative_address, test_ip)
 
@@ -85,3 +82,6 @@ class IxcHandler(object):
         self.resources.append(AutoLoadResource(model='Traffic Generator Test IP',
                                                name=test_ip.address.replace(':', '-'),
                                                relative_address=relative_address))
+        self.attributes.append(AutoLoadAttribute(relative_address=relative_address,
+                                                 attribute_name='Abstraction Selector',
+                                                 attribute_value=test_ip.address.replace(':', '-')))
