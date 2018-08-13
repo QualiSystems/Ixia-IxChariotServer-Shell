@@ -2,13 +2,6 @@
 <DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   
   	<Attributes>
-		<AttributeInfo Name="Abstraction Selector" Type="String" DefaultValue="" IsReadOnly="false"
-    				   Description="An attribute for selecting a specific Test IP.">
-      		<Rules Override="false">
-      			<Rule Name="Configuration" />
-	     		<Rule Name="Available For Abstract Resources" />
-      		</Rules>
-    	</AttributeInfo>
 		<AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The firmware version of the resource.">
       		<Rules Override="false">
@@ -16,6 +9,26 @@
 	     		<Rule Name="Available For Abstract Resources" />
       		</Rules>
     	</AttributeInfo>
+	    <AttributeInfo Name="Logical Name" Type="String" DefaultValue="" IsReadOnly="false"
+	    			   Description="">
+    	 	<Rules>
+        		<Rule Name="Setting" />
+      		</Rules>
+    	</AttributeInfo>
+		<AttributeInfo Name="Abstraction Selector" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="An attribute for selecting a specific Test IP.">
+      		<Rules Override="false">
+      			<Rule Name="Configuration" />
+	     		<Rule Name="Available For Abstract Resources" />
+      		</Rules>
+    	</AttributeInfo>
+    	<AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true"
+    				   Description="Vendor name.">
+      	<Rules>
+        	<Rule Name="Setting" />
+        	<Rule Name="Available For Abstract Resources" />
+      	</Rules>
+    	</AttributeInfo>    	
     	<AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The device model. This information is typically used for abstract resource filtering.">
       		<Rules Override="false">

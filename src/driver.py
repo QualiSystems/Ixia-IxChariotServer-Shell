@@ -7,7 +7,9 @@ This module is an empty shell, actual implementation is in ixc_handle.
 
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
 
-from ixc_server_handler import IxcHandler
+from cloudshell.traffic import tg_helper
+
+from src.ixc_handler import IxcHandler
 
 
 class IxChariotServerShell(ResourceDriverInterface):
@@ -19,7 +21,8 @@ class IxChariotServerShell(ResourceDriverInterface):
         """
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
-        self.handler.initialize(context)
+        self.logger = tg_helper.get_logger(context)
+        self.handler.initialize(context, self.logger)
 
     # Destroy the driver session, this function is called every time a driver instance is destroyed
     # This is a good place to close any open sessions, finish writing to log files
@@ -33,4 +36,3 @@ class IxChariotServerShell(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
         return self.handler.get_inventory(context)
-

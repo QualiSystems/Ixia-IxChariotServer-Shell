@@ -1,4 +1,4 @@
-<Driver Description="Autoload driver for Ixia IxChariot server" MainClass="driver.IxChariotServerShell" Name="IxChariotServerShell" Version="1.0.0">
+<Driver Description="Autoload driver for Ixia IxChariot server" MainClass="driver.IxChariotServerShell" Name="IxChariotServerShell" Version="1.1.1">
     <Layout>
 	
     	<Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">

@@ -7,23 +7,15 @@ IxChariot server (==chassis) shell driver implementation for Auto-load only.
 import imp
 import sys
 import os
-import logging
 
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
 
 
 class IxcHandler(object):
 
-    def initialize(self, context):
-        """
-        :type context: cloudshell.shell.core.driver_context.InitCommandContext
-        """
+    def initialize(self, context, logger):
 
-        log_file = 'c:/temp/ixchariot_server_logger.log'
-        logging.basicConfig(filename=log_file, level=logging.DEBUG)
-        self.logger = logging.getLogger('root')
-        self.logger.addHandler(logging.FileHandler(log_file))
-        self.logger.setLevel('DEBUG')
+        self.logger = logger
 
         address = context.resource.address
         username = context.resource.attributes['User']
@@ -60,6 +52,7 @@ class IxcHandler(object):
 
         endpoints = session.parentConvention.httpGet("ixchariot/resources/endpoint")
         for endpoint in endpoints:
+            self.logger.info('endpoint = {}'.format(endpoint))
             self._get_endpoint(endpoint)
 
     def _get_endpoint(self, endpoint):
@@ -73,6 +66,7 @@ class IxcHandler(object):
                                                  attribute_name='OS Version',
                                                  attribute_value=endpoint.operatingSystem))
         for test_ip in endpoint.ips:
+            self.logger.info('test IP = {}'.format(test_ip))
             self._get_test_ip(relative_address, test_ip)
 
     def _get_test_ip(self, endpoint, test_ip):
