@@ -1,7 +1,7 @@
 shell:
-    name: Ixia-IxChariotServer-Shell
-    author: Yoram Shamir
-    email: yoram.s@quali.com
-    description: Ixia IxChariot server shell
-    version: 1.1.1
-    driver_name: IxChariotServerShell
+  author: Yoram Shamir
+  description: Ixia IxChariot server shell
+  driver_name: IxChariotServerShell
+  email: yoram.s@quali.com
+  name: Ixia-IxChariotServer-Shell
+  version: 1.2.0
