@@ -9,7 +9,7 @@ from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterf
 
 from cloudshell.traffic import tg_helper
 
-from src.ixc_handler import IxcHandler
+from ixc_handler import IxcHandler
 
 
 class IxChariotServerShell(ResourceDriverInterface):

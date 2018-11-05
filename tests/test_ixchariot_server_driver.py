@@ -7,13 +7,9 @@ from shellfoundry.releasetools.test_helper import create_autoload_context
 from driver import IxChariotServerShell
 
 client_install_path = 'C:/Program Files (x86)/Ixia/IxChariot/webapi-96'
-address = '192.168.42.165'
+address = '192.168.42.167'
 user = 'admin'
-password = 'admin'
-client_install_path = 'C:/Program Files (x86)/Ixia/IxChariot/webapi-95'
-address = '192.168.42.191'
-user = 'yoram-s@qualisystems.com'
-password = 'Zoliro123'
+password = 'DxTbqlSgAVPmrDLlHvJrsA=='
 
 
 class TestIxChariotServerDriver():

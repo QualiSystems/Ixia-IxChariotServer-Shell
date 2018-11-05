@@ -11,9 +11,6 @@
             <Attribute Name="Password" Value="" />
             <Attribute Name="Client Install Path" Value="" />
             <Attribute Name="Power Management" Value="" />
-
-
-
         </Attributes>
     	</ResourceTemplate>
 	</ResourceTemplates>

@@ -9,6 +9,7 @@ import sys
 import os
 
 from cloudshell.shell.core.driver_context import AutoLoadDetails, AutoLoadResource, AutoLoadAttribute
+from cloudshell.shell.core.session.cloudshell_session import CloudShellSessionContext
 
 
 class IxcHandler(object):
@@ -19,7 +20,8 @@ class IxcHandler(object):
 
         address = context.resource.address
         username = context.resource.attributes['User']
-        password = context.resource.attributes['Password']
+        encripted_password = context.resource.attributes['Password']
+        password = CloudShellSessionContext(context).get_api().DecryptPassword(encripted_password).Value
         client_install_path = context.resource.attributes['Client Install Path']
 
         sys.path.append(client_install_path)

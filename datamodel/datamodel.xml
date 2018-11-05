@@ -61,15 +61,12 @@
                 <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
-		<AttributeInfo Name="Password" Type="String" DefaultValue="" IsReadOnly="false"
+		<AttributeInfo Name="Password" Type="Password" DefaultValue="" IsReadOnly="false"
          			   Description="">
             <Rules>
                 <Rule Name="Configuration"/>
             </Rules>
         </AttributeInfo>
-
-
-
 		<AttributeInfo Name="OS Version" Type="String" DefaultValue="" IsReadOnly="true"
          			   Description="">
       		<Rules Override="false">
